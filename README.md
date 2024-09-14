@@ -1,2 +1,2 @@
 Project Link:
-https://github.com/MidooFF/Static-Website-3.git
+https://midooff.github.io/Static-Website-2/
