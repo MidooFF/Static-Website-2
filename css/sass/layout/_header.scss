@@ -1,0 +1,127 @@
+.header {
+	position: relative;
+	@include prefixer(border-radius, 0px 0px 170px 170px, webkit moz);
+	&::before {
+		content: "";
+		width: calc(50% * 2);
+		height: calc(50% * 2);
+		background: #0171f9;
+		background: radial-gradient(circle at 0px 0px,
+			#0171f9 0%, #0171f9 50%,
+			#007cf8 50%, #007cf8 75%,
+			#0b8ef6 75%, #0b8ef6 100%);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: -1;
+	    @include prefixer(border-radius, 0px 0px 170px 170px, webkit moz);	
+	}
+	.navbar {
+		@extend %between-flex;
+		flex-direction: if($ltr, row, row-reverse);
+		margin-top: 20px;
+		position: relative;
+		ul {
+			@extend %between-flex;
+			flex-direction: if($ltr, row, row-reverse);
+			li {
+				margin-left: 30px;
+				a {
+					display: block;
+  				color: white;
+  				padding: 10px;
+ 					border-radius: 30px;
+ 					transition: 300ms;
+ 					&.active {
+ 	 					background-color: #cccccc6e;
+ 					}
+ 					&:hover {
+ 	 					background-color: #cccccc6e;
+ 					}
+				}
+				&:last-of-type a {
+					background: $redColor;
+					&:hover {
+						background: $redColor;
+					}
+				}
+			}
+		}
+		.menu-button {
+			display: none;
+			label {
+				width: 40px;
+				display: block;
+				height: 30px;
+				position: relative;
+				span {
+					display: block;
+					width: 100%;
+					height: 6px;
+					background-color: white;
+					position: absolute;
+					@include prefixer(border-radius, 30px, webkit moz);
+					&:first-child {
+						top: 0;
+						left: 0;
+					}
+					&:last-child {
+						bottom: 0;
+						left: 0;
+					}
+					&:nth-child(2) {
+						top: 50%;
+						transform: translateY(-50%);
+						left: 0;
+						width: 60%;
+					}
+				}
+			}
+		}
+		@media (max-width: $maxSmall) {
+			ul {
+				display: none;
+				position: absolute;
+		    width: 100%;
+  		  bottom: -40px;
+  		  left: 0;
+   		  transform: translateY(100%);
+   		  flex-direction: column;
+   		  background-color: white;
+   		  margin-top: 40px;
+   		  border-radius: 0px 0px 20px 20px;
+   		  padding-left: 0;
+				li {
+					width: 100%;
+					display: flex;
+					margin: 0;
+					padding: 10px;
+					justify-content: if($ltr, start, end);
+					&:not(:last-child) {
+						border-bottom: 1px solid #ddd;
+					}
+					a {
+						color: black;
+						width: fit-content;
+					}
+					&:last-child a {
+						color: white;
+					}
+				}
+			}
+			.menu-button {
+				display: block;
+			}
+		}
+		input {
+			display: none;
+			&:checked ~ ul{
+				display: flex;
+			}
+		}
+	}
+	@media (max-width: $maxMobile) {
+		border-radius: 0px 0px 90px 90px;
+	}
+}

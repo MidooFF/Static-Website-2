@@ -1,0 +1,357 @@
+.landing-home {
+	@extend %between-flex;
+	gap: 100px;
+	margin: 100px 0;
+	flex-direction: if($ltr, row, row-reverse);
+	.text {
+		text-align: if($ltr, left, right);
+		h2 {
+			font-weight: normal;
+			color: white;
+			margin-bottom: -30px;
+		}
+		h3 {
+			color: white;
+  			font-size: 55px;
+		}
+		p {
+			color: white;
+			font-size: 16px;
+			line-height: 1.6;
+			margin-top: -30px;
+			margin-bottom: 40px;
+		}
+		form {
+			input[type="text"] {
+				padding: 15px;
+				border-radius: 30px;
+				border: none;
+				outline: none;
+			}
+			input[type="submit"] {
+				padding: 19px 30px;
+				background-color: $redColor;
+				border-radius: 30px;
+				border: none;
+				outline: none;
+				margin-left: -54px;
+				height: 100%;
+				display: bloc;
+				color: white;			
+			}
+		}
+	}
+	.image {
+		position: relative;
+		img {
+			width: 350px;
+  			border-radius: 20px;
+		}
+		&::before {
+			content: "$22";
+		    position: absolute;
+		    right: 20px;
+		    top: 20px;
+		    background-color: #0071f8;
+		    color: white;
+		    font-size: 25px;
+		    font-weight: bold;
+		    padding: 10px 15px;
+		    border-radius: 42px;
+		}
+		&::after {
+			  content: "-40%";
+			  position: absolute;
+			  background-color: #ee626b;
+			  color: white;
+			  left: 0;
+			  transform: translate(-50%, -50%);
+			  border-radius: 50%;
+			  height: 90px;
+			  width: 90px;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  bottom: -71px;
+			  font-size: 30px;
+			  font-weight: bold;
+		}
+	}
+	@media (max-width: $maxSmall) {
+		flex-direction: column;
+		.text {
+			text-align: center;
+		}
+		.image::after {
+			left: 13px;
+			width: 70px;
+			height: 70px;
+			bottom: -50px;
+			font-size: 23px;
+		}
+	}
+}
+
+.features {
+	.container {
+		@include auto-grid(200px);
+		gap: 40px;
+  		margin-top: -40px;
+		.feat {
+			background-color: white;
+		    box-shadow: 0px 0px 26px 0px #9b9b9b;
+		    display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		    border-radius: 20px;
+		    padding: 20px;
+		    position: relative;
+		    transition: 300ms;
+			i {
+				color: white;
+			    background-color: $blueColor;
+			    font-size: 30px;
+			    padding: 10px;
+			    border-radius: 50%;
+			    width: 60px;
+			    height: 60px;
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    transition: 300ms;
+			}
+			&:hover {
+				i {
+					background-color: $redColor;
+				}
+				margin-top: -10px;
+				margin-bottom: 10px;
+				&::before {
+					margin-top: 10px;
+					margin-bottom: -10px;
+				}
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-color: $redColor;
+				border-radius: 20px;
+				z-index: -1;
+				transition: 300ms;
+			}
+		}
+	}
+}
+
+.trending-games .games{
+	@include auto-grid(200px);
+	gap: 40px;
+	.game {
+		background-color: $greyColor;
+		border-radius: 30px;
+		img {
+			width: 100%;
+			border-radius: 30px;
+		}
+		.text {
+			@extend %between-flex;
+			padding: 20px;
+			.content p {
+				color: $greyTextColor;
+			}
+			.content h2 {
+				transition: 300ms;
+			}
+			i {
+			  color: white;
+			  background-color: $redColor;
+			  width: 40px;
+			  height: 40px;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  font-size: 20px;
+			  border-radius: 50%;
+			  transition: 300ms;
+			}
+		}
+		&:hover {
+			.text .content h2 {
+				color: $blueColor;
+			}
+			.text i {
+				background-color: $blueColor;
+			}
+		}
+	}
+}
+
+.most-played {
+	margin-top: $sectionMargin;
+	.games {
+		@include auto-grid(150px);
+		gap: 20px;
+		.game {
+			background-color: $greyColor;
+			border-radius: 20px;
+			img {
+				width: 100%;
+				border-radius: 20px;
+			}
+			.text {
+				text-align: center;
+				padding-bottom: 20px;
+				p {
+					margin-bottom: -10px;
+					color: $greyTextColor;
+				}
+				h2 {
+					font-weight: normal;
+					transition: 300ms;
+				}
+				a {
+					color: white;
+			 	   background-color: $redColor;
+				   padding: 5px 10px;
+				   border-radius: 40px;
+				   transition: 300ms;
+				   font-weight: bold;
+				}
+			}
+			&:hover {
+				.text {
+					h2 {
+						color: $blueColor;
+					}
+					a {
+						background-color: $blueColor;
+					}
+				}
+			}
+		}
+	}
+}
+
+.top-categories {
+	margin-top: $sectionMargin;
+	.games {
+		@include auto-grid(200px);
+		gap: 20px;
+		margin-top: 30px;
+		.game {
+			position: relative;
+			margin-top: 55px;
+			img {
+				width: 100%;
+				border-radius: 20px;
+			}
+			&::before {
+				content: "Action";
+				width: 100%;
+				height: 70px;
+				background-color: $blueColor;
+				position: absolute;
+				z-index: -1;
+				top: -55px;
+				left: 0;
+				color: white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 20px 20px 0px 0px;
+				font-weight: bold;
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+.our-shop {
+	margin-top: $sectionMargin + 120px;
+	.container {
+		@extend %between-flex;
+		align-items: end;
+		gap: 180px;
+		flex-direction: if($ltr, row, row-reverse);
+		position: relative;
+		.side-a, .side-b {
+			background-color: $greyColor;
+			padding: 40px;
+			border-radius: 40px;
+			p.title {
+				color: $redColor;
+				font-size: 20px;
+			}
+			h2 {
+				font-size: 40px;
+				span {
+					color: $blueColor;
+				}
+			}
+			p.addic {
+				color: #7a7a7a;
+			   font-weight: bold;
+			   line-height: 1.6;
+			   margin-bottom: 40px;
+			}
+			a {
+				color: white;
+				background-color: $redColor;
+				padding: 10px 20px;
+				border-radius: 30px;
+				font-weight: bold;
+				height: 50px;
+			   width: 120px;
+			   display: flex;
+			   justify-content: center;
+			   align-items: center;
+			}
+			form {
+				height: 50px;
+				input[type="email"] {
+					height: 100%;
+			 	   border: none;
+				   border-radius: 30px;
+				   padding-left: 20px;
+				   outline: none;
+				}
+				input[type="submit"] {
+					height: 100%;
+				   border: none;
+				   outline: none;
+				   background-color: $redColor;
+				   color: white;
+				   border-radius: 30px;
+				   padding: 0px 20px;
+				   margin-left: -80px;
+				   font-weight: bold;
+				}
+			}
+		}
+		&::before {
+			content: "";
+			width: 400px;
+			height: 500px;
+			position: absolute;
+			z-index: -1;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 60px;
+			border-radius: 30px;
+			background-image: url(../imgs/cta-bg.jpg);
+		}
+	}
+	@media (max-width: $maxSmall) {
+		.container {
+			flex-direction: column;
+			gap: 60px;
+			&::before {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+.main-title {
+	margin-top: 90px;
+	@extend %between-flex;
+	flex-direction: if($ltr, row, row-reverse);
+	.side-a {
+		p {
+			color: $redColor;
+			margin-bottom: 20px;
+			font-size: 20px;
+		}
+		h2 {
+			font-size: 30px;
+		}
+	}
+	.side-b {
+		a {
+			background-color: $redColor;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 30px;
+			font-weight: bold;
+		}
+	}
+}
+
+.main-title-2 {
+	text-align: center;
+	p {
+		color: $redColor;
+		font-weight: bold;
+	}
+	h2 {
+		font-size: 30px;
+	}
+}

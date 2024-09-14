@@ -1,0 +1,14 @@
+* {
+	@include prefixer(box-sizing, border-box, webkit moz);
+}
+
+body {
+	font-family: 'Hind', sans-serif;
+}
+
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}

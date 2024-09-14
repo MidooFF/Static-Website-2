@@ -1,0 +1,143 @@
+.landing-our-shop {
+	padding: 100px 0px;
+	text-align: center;
+	h2 {
+		color: white;
+ 		font-size: 40px;
+	}
+	p {
+		color: white;
+ 		margin-top: -20px;
+	}
+}
+
+.shop {
+	margin-top: $sectionMargin;
+	.title {
+		@extend %between-flex;
+		justify-content: center;
+		margin-bottom: 40px;
+		h2 {
+			background-color: $greyColor;
+			padding: 5px 10px;
+			border-radius: 15px;
+			width: fit-content;
+			transition: 300ms;
+			margin-right: 20px;
+			cursor: pointer;
+			font: {
+				size: 20px;
+				weight: normal;
+			}
+			&:not(.active):hover {
+				color: $redColor;
+			}
+			&.active {
+				background-color: $redColor;
+				color: white;
+			}
+		}
+	}
+
+	.games {
+		@include auto-grid(250px);
+		gap: 20px;
+		.game {
+			border-radius: 20px;
+			background-color: $greyColor;
+			position: relative;
+			img {
+				width: 100%;
+				border-radius: 20px;
+			}
+			.text {
+				@extend %between-flex;
+				padding: 10px;
+				.content {
+					p {
+						color: $greyTextColor;
+					}
+					h2 {
+						font-size: 25px;
+ 						margin-top: -10px;
+ 						transition: 300ms;
+					}
+				}
+				i {
+					width: 30px;
+					height: 30px;
+					background-color: $redColor;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: white;
+					border-radius: 50%;
+					transition: 300ms;
+				}
+			}
+			.sale {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				background-color: $blueColor;
+				border-radius: 5px;
+				padding: 10px;
+				text-align: right;
+				p {
+					color: white;
+					text-decoration: line-through;
+					margin-top: 0;
+				}
+				h2 {
+					color: white;
+					margin-bottom: 0;
+					margin-top: -15px;
+					font-size: 20px;
+				}
+			}
+			&:hover {
+				.text {
+					.content h2 {
+						color: $blueColor;
+					}
+					i {
+						background-color: $blueColor;
+					}
+				}
+			}
+		}
+	}
+	.fast-trans {
+		display: flex;
+		justify-content: center;
+		aling-items: center;
+		margin-top: 40px;
+		div {
+			width: 40px;
+			height: 40px;
+			margin-right: 10px;
+			border-radius: 50%;
+			background-color: $greyColor;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: bold;
+			transition: 300ms;
+			&:first-child {
+				transform: rotate(-90deg);
+			}
+			&:last-child {
+				transform: rotate(90deg);
+			}
+			&:nth-child(3) {
+				background-color: $blueColor;
+				color: white;
+			}
+			&:hover {
+				background-color: $blueColor;
+				color: white;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,27 @@
+@mixin prefixer($prop, $propVal, $prefixes) {
+	@each $prefix in $prefixes {
+		-#{$prefix}-#{$prop}: $propVal;
+	}
+}
+
+@mixin keyF($animName) {
+	@keyframes #{$animName}{
+		@content;
+	}
+	@-webkit-keyframes #{$animName} {
+		@content;
+	}
+}
+
+@mixin anim($animName, $animDur, $animDelay, $animIC, $animTM) {
+	@include prefixer(animation-name, $animName, webkit moz);
+	@include prefixer(animation-duration, $animDur, webkit moz);
+	@include prefixer(animation-Delay, $animDelay, webkit moz);
+	@include prefixer(animation-iteration-count, $animIC, webkit moz);
+	@include prefixer(animation-timing-function, $animTM, webkit moz);
+}
+
+@mixin auto-grid($startWidth) {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax($startWidth, 1fr));
+}

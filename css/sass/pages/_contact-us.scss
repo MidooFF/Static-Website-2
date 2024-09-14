@@ -1,0 +1,87 @@
+.contact .container {
+	margin-top: $sectionMargin;
+	@extend %between-flex;
+	gap: 60px;
+	.side-a {
+		h3 {
+			color: $redColor;
+			text-transform: uppercase;
+  			font-size: 15px;
+		}
+		h2 {
+			font-size: 40px;
+  			margin-top: 0;
+		}
+		p {
+			line-height: 1.6;
+  			font-size: 17px;
+  			color: $greyTextColor;
+		}
+		.info {
+			margin-top: 80px;
+			h2 {
+				font-size: 20px;
+				color: $greyTextColor;
+			}
+			p {
+				font-size: 20px;
+  				margin-bottom: 40px;
+  				line-height: 1;
+  				color: #afafaf;
+			}
+		}
+	}
+	.side-b {
+		width: 174%;
+		iframe {
+			width: 100%;
+			height: 320px;
+		}
+		form {
+			margin-top: 50px;
+			.row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 30px;
+				margin-bottom: 30px;
+				input {
+					width: 50%;
+					border: 1px solid #ccc;
+					outline: none;
+				 	border-radius: 30px;
+					padding: 5px 10px;
+				}
+			}
+			input[type="submit"] {
+					background-color: $redColor;
+				    padding: 10px 20px;
+				    border-radius: 30px;
+				    margin-top: 30px;
+				    color: white;
+				    border: none;
+				    outline: none;
+				    font-weight: bold;
+				    transition: 300ms;
+				    &:hover {
+				    	background-color: $blueColor;
+				    }
+				}
+			textarea {
+				width: 100%;
+				resize: vertical;
+				width: 100%;
+			    resize: vertical;
+			    border-radius: 30px;
+			    padding: 20px;
+			    border: 1px solid #ccc;
+			}
+		}
+	}
+	@media (max-width: $maxMobile) {
+		flex-direction: column;
+		.side-b {
+			width: 100%;
+		}
+	}
+}

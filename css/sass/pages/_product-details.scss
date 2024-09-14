@@ -1,0 +1,164 @@
+.landing-product-details {
+	padding: 60px;
+	text-align: center;
+	h2 {
+		font-size: 35px;
+		color: white;
+		margin-bottom: 0;
+	}
+	p {
+		color: white;
+		font-size: 12px;
+	}
+}
+
+.call-of-duty .container{
+	@extend %between-flex;
+	gap: 100px;
+	margin-top: $sectionMargin;
+	padding-bottom: 60px;
+	border-bottom: 1px solid #ccc;
+	.image {
+		width: 100%;
+		img {
+			width: 100%;
+		}
+	}
+	.content {
+		h2.title {
+			font-size: 25px;
+		}
+		p.price {
+			color: $blueColor;
+		    font-size: 25px;
+		    font-weight: bold;
+		    span {
+		    	font-size: 15px;
+		    	color: $greyTextColor;
+		    	text-decoration: line-through;
+		    	margin-right: 5px;
+		    }
+		}
+		p.text {
+			color: $greyTextColor;
+			line-height: 1.6;
+			font-size: 14px;
+		}
+		.add {
+			display: flex;
+			align-items: center;
+			height: 35px;
+			margin: 20px 0px;
+			p {
+				height: 100%;
+			    display: flex;
+			    align-items: center;
+			    padding: 0px 20px;
+			    border: 1px solid #ccc;
+			    border-radius: 20px;
+			    margin-right: 10px;
+			    font-size: 15px;
+			}
+			a {
+				height: 100%;
+				background-color: $redColor;
+				display: flex;
+			    align-items: center;
+			    padding: 0px 20px;
+			    color: white;
+			    border-radius: 20px;
+			    font-size: 15px;
+  				font-weight: bold;
+			    i {
+			    	margin-right: 10px;
+			    }
+			}
+		}
+		.info {
+			display: flex;
+		    align-items: center;
+		    font-size: 12px;
+		    .side-a {
+		    	color: $greyTextColor;
+		    	margin-right: 35px;
+		    }
+		    .side-b {
+		    	color: $blueColor;
+		    }
+		}
+	}
+	@media (max-width: $maxSmall) {
+		flex-direction: column;
+	}
+}
+
+.description {
+	margin-top: $sectionMargin;
+	input {
+		display: none;
+	}
+	.buttons {
+		display: flex;
+		align-items: center;
+		font: {
+			size: 20px;
+			weight: bold;
+		}
+		label {
+			transition: 300ms;
+		}
+		label[for="des"] {
+			padding-right: 30px;
+		    border-right: 1px solid #ccc;
+		    margin-right: 30px;
+		    transition: 300ms;
+		}
+	}
+	.des-text {
+		margin-top: 30px;
+		color: $greyTextColor;
+		line-height: 1.6;
+		display: none;
+		opacity: 0;
+		animation-duration: 300ms;
+		animation-fill-mode: both;
+	}
+	.rev-text {
+		margin-top: 30px;
+		color: $greyTextColor;
+		line-height: 1.6;
+		display: none;
+		opacity: 0;
+		animation-duration: 300ms;
+		animation-fill-mode: both;
+	}
+	input[id="des"]:checked ~ .container {
+		.buttons label[for="des"] {
+			color: $blueColor;
+		}
+		.des-text {
+			display: block;
+			animation-name: fade-in-text;
+		}
+	}
+	input[id="rev"]:checked ~ .container {
+		.buttons label[for="rev"] {
+			color: $blueColor;
+		}
+		.rev-text {
+			display: block;
+			animation-name: fade-in-text;
+		}
+	}
+}
+
+@keyframes fade-in-text {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+
